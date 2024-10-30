@@ -64,7 +64,7 @@ namespace me.cqp.luohuaming.AiPictureDetector.App.Export
 			// 反射获取 AppData 实例	
 			Type appDataType = typeof (AppData);	
 			// 注册一个 CQApi 实例	
-			AppInfo appInfo = new AppInfo ("me.cqp.luohuaming.AiPictureDetector", 1, 9, "酷Q样例应用 for C#", "1.0.0", 1, "JieGG", "酷Q样例应用(V9应用机制)", authCode);	
+			AppInfo appInfo = new AppInfo ("me.cqp.luohuaming.AiPictureDetector", 1, 9, "水银抗癌机", "1.0.0", 1, "落花茗", "癌图检测", authCode);	
 			appDataType.GetRuntimeProperty ("CQApi").GetSetMethod (true).Invoke (null, new object[] { new CQApi (appInfo) });	
 			AppData.UnityContainer.RegisterInstance<CQApi> ("me.cqp.luohuaming.AiPictureDetector", AppData.CQApi);	
 			// 向容器注册一个 CQLog 实例	
@@ -177,7 +177,7 @@ namespace me.cqp.luohuaming.AiPictureDetector.App.Export
 		{	
 			if (Event_eventGroupMsgHandler != null)	
 			{	
-				CQGroupMessageEventArgs args = new CQGroupMessageEventArgs (AppData.CQApi, AppData.CQLog, 2, 2, "群消息处理", "_eventGroupMsg", 30000, subType, msgId, fromGroup, fromQQ, fromAnonymous, msg.ToString(CQApi.DefaultEncoding), false);	
+				CQGroupMessageEventArgs args = new CQGroupMessageEventArgs (AppData.CQApi, AppData.CQLog, 2, 2, "群消息处理", "_eventGroupMsg", 30000, subType, msgId, fromGroup, fromQQ, "", msg.ToString(CQApi.DefaultEncoding), false);	
 				Event_eventGroupMsgHandler (typeof (CQEventExport), args);	
 				return (int)(args.Handler ? CQMessageHandler.Intercept : CQMessageHandler.Ignore);	
 			}	
