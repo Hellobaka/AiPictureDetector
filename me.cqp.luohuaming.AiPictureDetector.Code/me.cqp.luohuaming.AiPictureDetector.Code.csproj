@@ -62,7 +62,8 @@
     <Compile Include="Event_PrivateMessage.cs" />
     <Compile Include="Event_GroupMessage.cs" />
     <Compile Include="Event_StartUp.cs" />
-    <Compile Include="OrderFunctions\ExampleFunction.cs" />
+    <Compile Include="OrderFunctions\Query.cs" />
+    <Compile Include="OrderFunctions\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

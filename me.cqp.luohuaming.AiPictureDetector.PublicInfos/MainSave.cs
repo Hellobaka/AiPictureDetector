@@ -1,4 +1,5 @@
 using me.cqp.luohuaming.AiPictureDetector.Sdk.Cqp;
+using PublicInfos.Model;
 using System.Collections.Generic;
 using System.IO;
 
@@ -14,5 +15,7 @@ namespace me.cqp.luohuaming.AiPictureDetector.PublicInfos
         public static CQApi CQApi { get; set; }
         public static string AppDirectory { get; set; }
         public static string ImageDirectory { get; set; }
+
+        public static List<DelayAPI> DelayAPIs { get; set; } = [];
     }
 }
