@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -120,7 +120,7 @@
       <Project>{d7a958b3-79d9-49f8-8bb4-9619bab6ecba}</Project>
       <Name>me.cqp.luohuaming.AiPictureDetector.Sdk</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PublicInfos\PublicInfos.csproj">
+    <ProjectReference Include="..\me.cqp.luohuaming.AiPictureDetector.PublicInfos\me.cqp.luohuaming.AiPictureDetector.PublicInfos.csproj">
       <Project>{9ca41650-71f2-4f0c-9a80-9cdb5a7d593c}</Project>
       <Name>PublicInfos</Name>
     </ProjectReference>
