@@ -69,7 +69,7 @@ namespace me.cqp.luohuaming.AiPictureDetector.Code.OrderFunctions
             
             if (r.AIScore > r.NotAIScore)
             {
-                sendText.MsgToSend.Add(string.Format(AppConfig.ReplyIsAI, r.AIScore.ToString("f2")));
+                sendText.MsgToSend.Add(string.Format(AppConfig.ReplyIsAI, r.AIScore.ToString("f2"), r.ModelName));
             }
             else
             {

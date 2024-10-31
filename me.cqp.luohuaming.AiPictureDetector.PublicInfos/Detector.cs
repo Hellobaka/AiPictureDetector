@@ -67,6 +67,7 @@ namespace PublicInfos
                     notAIScore *= 1 - result_SightEngine.type.ai_generated;
                     r.AIScore = aiScore;
                     r.NotAIScore = notAIScore;
+                    r.ModelName = result_SightEngine.type.ai_generators.GetHighestModel();
                     break;
             }
             return r;
@@ -84,7 +85,8 @@ namespace PublicInfos
             fileContent.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/jpeg");
 
             form.Add(fileContent, "media", Path.GetFileName(filePath));
-            form.Add(new StringContent("genai"), "models");
+            form.Add(new StringContent("genai,deepfake"), "models");
+            form.Add(new StringContent("on"), "opt_generators");
             form.Add(new StringContent(AppConfig.SightEngine_UserID), "api_user");
             form.Add(new StringContent(AppConfig.SightEngine_UserSecret), "api_secret");
             var t = http.PostAsync(BaseUrl_SightEngine, form).Result;

@@ -31,7 +31,7 @@ namespace me.cqp.luohuaming.AiPictureDetector.PublicInfos
         public override void LoadConfig()
         {
             CommandMenu = GetConfig("CommandMenu", "#鉴癌");
-            ReplyIsAI = GetConfig("ReplyIsAI", "像啊，很像啊\n是 AI 的概率为 {0}%");
+            ReplyIsAI = GetConfig("ReplyIsAI", "像啊，很像啊\n是 AI 的概率为 {0}%，可能的来源模型是 {1}");
             ReplyNotAI = GetConfig("ReplyNotAI", "不太像\n不是 AI 的概率为 {0}%");
             SightEngine_UserID = GetConfig("SightEngine_UserID", "");
             SightEngine_UserSecret = GetConfig("SightEngine_UserSecret", "");
