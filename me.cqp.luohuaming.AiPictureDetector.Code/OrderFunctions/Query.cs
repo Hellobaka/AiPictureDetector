@@ -60,37 +60,20 @@ namespace me.cqp.luohuaming.AiPictureDetector.Code.OrderFunctions
             }
             File.Move(img, path);
 
-            var detector = Detector.Get(path);
-            if (detector == null || detector.return_code != "0"
-                || detector.response == null
-                || detector.response.output == null
-                || detector.response.output.Length == 0
-                || detector.response.output.First().classes.Length == 0)
+            var r = Detector.Detect(path);
+            if (r == null || !r.Success)
             {
-                e.CQLog.Info("调用接口", $"code={detector.return_code} msg={detector.message}");
                 sendText.MsgToSend.Add("接口调用失败，查看日志排查问题");
                 return result;
             }
-            var list = detector.response.output.First().classes.ToList();
-            var ai = list.FirstOrDefault(x => x.name == "ai_generated");
-            var notAI = list.FirstOrDefault(x => x.name == "not_ai_generated");
-            if (ai == null || notAI == null)
+            
+            if (r.AIScore > r.NotAIScore)
             {
-                e.CQLog.Info("调用接口", $"code={detector.return_code} msg={detector.message}");
-                sendText.MsgToSend.Add("接口调用失败，查看日志排查问题");
-                return result;
-            }
-
-            var aiScore = ai.score * 100;
-            var notAIScore = notAI.score * 100;
-            if (aiScore > notAIScore)
-            {
-                var highestModel = list.OrderByDescending(x => x.score).FirstOrDefault(x => x.name != "not_ai_generated" && x.name != "ai_generated");
-                sendText.MsgToSend.Add(string.Format(AppConfig.ReplyIsAI, aiScore.ToString("f2"), highestModel.name));
+                sendText.MsgToSend.Add(string.Format(AppConfig.ReplyIsAI, r.AIScore.ToString("f2")));
             }
             else
             {
-                sendText.MsgToSend.Add(string.Format(AppConfig.ReplyNotAI, notAIScore.ToString("f2")));
+                sendText.MsgToSend.Add(string.Format(AppConfig.ReplyNotAI, r.NotAIScore.ToString("f2")));
             }
             return result;
         }

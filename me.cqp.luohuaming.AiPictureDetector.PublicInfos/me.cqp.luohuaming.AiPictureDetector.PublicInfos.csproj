@@ -106,6 +106,9 @@
     <Compile Include="Models.cs" />
     <Compile Include="Model\DelayAPI.cs" />
     <Compile Include="Model\DetectorResult.cs" />
+    <Compile Include="Model\DetectorResult_HiveAI.cs" />
+    <Compile Include="Model\DetectorResult_SightEngine.cs" />
+    <Compile Include="Model\DetectorType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
