@@ -10,7 +10,7 @@
 | 键                                 | 描述                                       | 默认值                                      |
 |----------------------------------|------------------------------------------|-------------------------------------------|
 |CommandMenu|指令触发文本|#鉴癌|
-|ReplyIsAI|AI图概率高的文本|像啊，很像啊\n是 AI 的概率为 {0}%|
+|ReplyIsAI|AI图概率高的文本|像啊，很像啊\n是 AI 的概率为 {0}%，可能的来源模型是 {1}|
 |ReplyNotAI|不是AI图概率高的文本|不太像\n不是 AI 的概率为 {0}%|
 |SightEngine_UserID|SightEngine的APIUser||
 |SightEngine_UserSecret|SightEngine的APISecret||
